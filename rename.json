@@ -1,0 +1,6 @@
+{
+  "js/*.js": "js/*.js",
+  "css/*.css": "css/*.css",
+  "img/*.png": "img/*.png",
+  "img/*.jpg": "img/*.jpg"
+}
