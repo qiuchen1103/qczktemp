@@ -9,7 +9,7 @@
   // 结束回答项目相关问题后，控制台打印出来的信息
   exports.after = '项目手脚架已经搭建好了，开始干活吧~'+'\n'+
     '1、npm install 安装项目依赖的node模块'+'\n'+
-    '2、grunt watchit 运行任务';
+    '2、grunt watchit 运行监听任务';
 
   // 如果运行grunt-init运行的那个目录下，有目录或文件符合warnOn指定的模式
   // 则会警告，防止用户不小心把当前目录下的文件覆盖了，一般都为*，如果要强制跳过，可加上--force
@@ -48,8 +48,24 @@
           "grunt-contrib-watch": "^0.6.1",
           "grunt-contrib-copy": "^0.8.2",
           "grunt-contrib-cssmin": "^0.14.0",
-          "grunt-contrib-less": "^1.1.0"
-              },
+          "grunt-contrib-less": "^1.1.0",
+
+          "vue-loader": "^11.1.4",
+          "vue-template-compiler": "^2.2.1",
+          "webpack": "^2.2.1",
+
+          "babel-core": "^6.0.0",
+          "babel-loader": "^6.0.0",
+          "babel-preset-latest": "^6.0.0",
+          "cross-env": "^3.0.0",
+          "css-loader": "^0.25.0",
+          "file-loader": "^0.9.0",
+
+          "webpack-dev-server": "^2.2.0"
+        },
+        dependencies: {
+          "vue": "^2.2.1"
+        }
       });
 
       // All done!

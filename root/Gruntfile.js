@@ -9,7 +9,7 @@ module.exports = function(grunt) {
               expand: true,
               cwd: './workPlace/',
               src: ['**/*.less'],
-              dest: './workPlace/',
+              dest: './css/',
               ext: '.css'
           }]
         }
@@ -18,15 +18,14 @@ module.exports = function(grunt) {
       uglify: {
         compressjs: {
           files: {
-            'js/main.min.js' : ['workPlace/main.js']
+            'js/build.min.js' : ['js/build.js']
           }
         }
       },
-
       cssmin: {
         compress: {
           files: {
-            "css/main.min.css": ["workPlace/main.css"]
+            "css/main.min.css": ["css/main.css"]
           }
         }
       },
@@ -35,7 +34,6 @@ module.exports = function(grunt) {
       copy: {
          main: {
             files: [
-              // {src: ['path/*'], dest: 'dest/', filter: 'isFile'}, // 复制path目录下的所有文件
               {src: ['css/**','js/**','img/**','*.html'], dest: 'demo/'} // 复制path目录下的所有目录和文件
             ]
           }
@@ -44,7 +42,7 @@ module.exports = function(grunt) {
       // 监听任务
       watch: {
         scripts: {
-          files: ['workPlace/*.less', 'workPlace/*.js', '*.html'],
+          files: ['workPlace/*.less', 'workPlace/*.js', 'workPlace/js_module/*.js', 'workPlace/vue_component/*.vue', '*.html'],
           tasks: ['less', 'uglify', 'cssmin', 'copy']
         },
 
@@ -56,7 +54,9 @@ module.exports = function(grunt) {
                 'demo/**',
                 '*.html',
                 'workPlace/*.less',
-                'workPlace/*.js',
+                'workPlace/*.js', 
+                'workPlace/js_module/*.js', 
+                'workPlace/vue_component/*.vue',
                 'img/**'
             ]
         }
@@ -98,6 +98,9 @@ module.exports = function(grunt) {
     'compile',
     ['less', 'uglify', 'cssmin', 'copy']
   );
-  grunt.registerTask('default');
+  grunt.registerTask(
+    'default',
+    ['less', 'uglify', 'cssmin', 'copy']
+  );
 
 };
